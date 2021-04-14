@@ -1,23 +1,18 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {Header} from 'react-native/Libraries/NewAppScreen';
+import { Text, View} from 'react-native';
+import Styles from '../views/styles';
 
-const topo = () => {
+const Topo = () => {
   return (
-    <View style={styles.header}>
-      <Header>Usuários</Header>
+    <View style={Styles.header}>
+      <Text>Kevinho</Text>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  header: {
-    width: '100%',
-    height: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#FFF',
-  },
-});
 
-export default topo;
+
+
+
+
+export default Topo;
