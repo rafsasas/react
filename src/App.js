@@ -1,19 +1,14 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
 import Topo from './components';
-
+import Styles from './views/styles';
 
 const App = () => {
   return (
-    <View>
+    <View style={Styles.container}>
       <Topo />
     </View>
   );
 };
-
-
-
-
-
 
 export default App;
