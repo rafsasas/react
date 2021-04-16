@@ -1,4 +1,3 @@
-import React from 'react';
 import {StyleSheet} from 'react-native';
 
 const Styles = StyleSheet.create({
@@ -6,7 +5,6 @@ const Styles = StyleSheet.create({
     backgroundColor: '#FFFF',
   },
   header: {
-    width: 400,
     height: 64,
     alignItems: 'center',
     paddingTop: 21,
@@ -18,19 +16,38 @@ const Styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   button: {
-    width: 50,
-    padding: 10,
+    margin: 20,
+    paddingVertical: 12,
+    paddingHorizontal: 30,
+    lineHeight: 35,
     textAlign: 'center',
-    paddingTop: 30,
+    alignContent: 'center',
+    alignItems: 'center',
     backgroundColor: '#FF7E1F',
-    marginVertical: 8,
-    borderRadius: 15,
+    borderRadius: 10,
   },
-  // buttonText: {
-  //   color: '#FFFFFF',
-  //   fontSize: 16,
-  //   fontWeight: 'Cairo',
-  // },
+  buttonText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontFamily: 'Cairo',
+  },
+  item: {
+    backgroundColor: '#FFFFFF',
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+    flexDirection: 'row',
+  },
+  title: {
+    color: '#0154AD',
+    fontSize: 16,
+    textAlign: 'left',
+    justifyContent: 'center',
+  },
+  image: {
+    height: 41,
+    width: 41,
+  },
 });
 
 export default Styles;
