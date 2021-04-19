@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 const Styles = StyleSheet.create({
   container: {
-    backgroundColor: '#FFFF',
+    backgroundColor: '#FFF',
   },
   header: {
     height: 64,
@@ -46,7 +46,38 @@ const Styles = StyleSheet.create({
   },
   image: {
     height: 41,
+    borderRadius: 50,
     width: 41,
+  },
+  textInput: {
+    color: '#7C8B99',
+    fontSize: 15,
+    textAlign: 'center',
+    fontFamily: 'Cairo',
+  },
+  container2: {
+    backgroundColor: '#FFF',
+    flexDirection: 'row',
+  },
+  iconNome: {
+    height: 25.4,
+    width: 25.54,
+  },
+  iconEmail: {
+    width: 25.08,
+    height: 17.24,
+  },
+  iconFone: {
+    width: 24.14,
+    height: 23.99,
+  },
+  iconBirthday: {
+    width: 26,
+    height: 26,
+  },
+  iconCpf: {
+    width: 35,
+    height: 39,
   },
 });
 
