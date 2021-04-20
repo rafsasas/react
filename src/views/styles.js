@@ -3,6 +3,7 @@ import {StyleSheet} from 'react-native';
 const Styles = StyleSheet.create({
   container: {
     backgroundColor: '#FFF',
+    flex: 1,
   },
   header: {
     height: 64,
@@ -39,6 +40,7 @@ const Styles = StyleSheet.create({
     padding: 15,
     marginVertical: 8,
     marginHorizontal: 16,
+    alignItems: 'center',
   },
   title: {
     width: '100%',
@@ -52,6 +54,7 @@ const Styles = StyleSheet.create({
     height: 41,
     borderRadius: 50,
     width: 41,
+    marginRight: 11,
   },
   textInput: {
     width: '100%',
