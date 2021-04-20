@@ -33,7 +33,7 @@ const Navigator = () => {
           name="Screen2"
           component={Screen2}
           options={{
-            title: 'Usuários',
+            title: 'Editar',
             headerStyle: {
               height: 64,
               backgroundColor: '#0154AD',

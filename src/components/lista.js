@@ -16,30 +16,10 @@ const DATA = [
     id: 3,
     title: 'Katerine Ramos',
   },
-  {
-    id: 4,
-    title: 'Lucas Moreira',
-  },
-  {
-    id: 5,
-    title: 'Claudio Augusto',
-  },
-  {
-    id: 6,
-    title: 'Eva Suarez',
-  },
-  {
-    id: 7,
-    title: 'Katerine Ramos',
-  },
-  {
-    id: 8,
-    title: 'Lucas Moreira',
-  },
 ];
 
 const Item = ({title}) => (
-  <View style={Styles.item}>
+  <View style={Styles.containerLista}>
     <Image source={Imagem} style={Styles.image} />
     <Text style={Styles.title}> {title} </Text>
   </View>

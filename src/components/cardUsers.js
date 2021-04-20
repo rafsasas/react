@@ -1,7 +1,11 @@
 import React, {useState} from 'react';
 import {TextInput, View} from 'react-native';
 import Styles from '../views/styles';
-import Icon from '../assets/CPF.svg';
+import IconCpf from '../assets/CPF.svg';
+import IconUser from '../assets/user.svg';
+import IconEmail from '../assets/email.svg';
+import IconFone from '../assets/telefone.svg';
+import IconBirthday from '../assets/encontro.svg';
 
 const CardUser = () => {
   const [user, setUser] = useState({
@@ -21,7 +25,7 @@ const CardUser = () => {
   return (
     <>
       <View style={Styles.container2}>
-        <Icon style={Styles.iconNome} />
+        <IconUser style={Styles.iconName} />
         <TextInput
           style={Styles.textInput}
           value={user.name}
@@ -29,27 +33,35 @@ const CardUser = () => {
         />
       </View>
       <View style={Styles.container2}>
-        <Icon style={Styles.iconNome} />
+        <IconEmail style={Styles.iconEmail} />
         <TextInput
           style={Styles.textInput}
-          value={user.name}
-          onChangeText={name => setUser({...user, ...{name}})}
+          value={user.email}
+          onChangeText={email => setUser({...user, ...{email}})}
         />
       </View>
       <View style={Styles.container2}>
-        <Icon style={Styles.iconNome} />
+        <IconFone style={Styles.iconFone} />
         <TextInput
           style={Styles.textInput}
-          value={user.name}
-          onChangeText={name => setUser({...user, ...{name}})}
+          value={user.fone}
+          onChangeText={fone => setUser({...user, ...{fone}})}
         />
       </View>
       <View style={Styles.container2}>
-        <Icon style={Styles.iconNome} />
+        <IconBirthday style={Styles.iconBirthday} />
         <TextInput
           style={Styles.textInput}
-          value={user.name}
-          onChangeText={name => setUser({...user, ...{name}})}
+          value={user.birthday}
+          onChangeText={birthday => setUser({...user, ...{birthday}})}
+        />
+      </View>
+      <View style={Styles.container2}>
+        <IconCpf style={Styles.iconCpf} />
+        <TextInput
+          style={Styles.textInput}
+          value={user.cpf}
+          onChangeText={cpf => setUser({...user, ...{cpf}})}
         />
       </View>
     </>
