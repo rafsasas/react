@@ -33,6 +33,7 @@ const Styles = StyleSheet.create({
     fontFamily: 'Cairo',
   },
   containerLista: {
+    flex: 1,
     backgroundColor: 'white',
     flexDirection: 'row',
     width: '100%',
@@ -41,14 +42,12 @@ const Styles = StyleSheet.create({
     marginVertical: 8,
     marginHorizontal: 16,
     alignItems: 'center',
+    paddingTop: 8,
   },
   title: {
-    width: '100%',
-    height: 25,
     color: '#0154AD',
     fontSize: 16,
     textAlign: 'left',
-    justifyContent: 'center',
   },
   image: {
     height: 41,
@@ -117,6 +116,17 @@ const Styles = StyleSheet.create({
     backgroundColor: '#FF7E1F',
     borderRadius: 10,
     marginTop: 160,
+  },
+  iconDelete: {
+    justifyContent: 'center',
+  },
+  containerIcon: {
+    flex: 1,
+    justifyContent: 'center',
+    width: 40,
+    height: 40,
+    alignItems: 'center',
+    paddingLeft: 100,
   },
 });
 

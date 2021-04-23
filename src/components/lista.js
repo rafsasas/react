@@ -1,41 +1,59 @@
 import React from 'react';
-import {Text, View, FlatList, Image} from 'react-native';
+import {useEffect, useState} from 'react';
+import {
+  Text,
+  View,
+  FlatList,
+  Image,
+  ActivityIndicator,
+  TouchableOpacity,
+} from 'react-native';
 import Styles from '../views/styles';
 import Imagem from '../assets/pp.png';
+import {getUsers} from '../services/api';
+import IconDelete from '../assets/delete.svg';
 
-const DATA = [
-  {
-    id: 1,
-    title: 'Luciana abreu',
-  },
-  {
-    id: 2,
-    title: 'Tania afonso',
-  },
-  {
-    id: 3,
-    title: 'Katerine Ramos',
-  },
-];
+const Users = () => {
+  const [loading, setLoading] = useState(true);
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    const start = async () => {
+      const request = await getUsers();
+      if (request) {
+        setUsers(request);
+      }
+      setLoading(false);
+    };
+    start();
+  }, []);
 
-const Item = ({title}) => (
-  <View style={Styles.containerLista}>
-    <Image source={Imagem} style={Styles.image} />
-    <Text style={Styles.title}> {title} </Text>
-  </View>
-);
+  const Item = ({item, navigation}) => (
+    <View style={Styles.containerLista}>
+      <Image source={Imagem} style={Styles.image} />
 
-const Usuarios = () => {
-  console.log('Usuarios');
-  const renderItem = ({item}) => <Item title={item.title} />;
+      <TouchableOpacity
+        onPress={() => navigation.navigate('Screen2')}
+        style={Styles.title}>
+        <Text>{item.name}</Text>
+      </TouchableOpacity>
 
+      <TouchableOpacity style={Styles.containerIcon}>
+        <IconDelete width={20} height={20} />
+      </TouchableOpacity>
+    </View>
+  );
   return (
-    <FlatList
-      data={DATA}
-      renderItem={renderItem}
-      keyExtractor={item => item.id}
-    />
+    <>
+      {loading ? (
+        <ActivityIndicator />
+      ) : (
+        <FlatList
+          data={users}
+          keyExtractor={({id}, index) => id}
+          renderItem={Item}
+        />
+      )}
+    </>
   );
 };
-
-export default Usuarios;
+export default Users;
