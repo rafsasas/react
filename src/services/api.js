@@ -8,23 +8,45 @@ export const getUsers = async () => {
   }
 };
 
-// export const deleteUser = () => {
-//   fetch('http://192.168.42.74:3001/users' + id, {
-//     method: 'DELETE',
-//   })
-//     .then(res => res.json())
-//     .then(res => console.log(res));
+export const deleteUser = async id => {
+  try {
+    let response = await fetch(`http://192.168.42.74:3001/users/${id}`, {
+      method: 'DELETE',
+    });
+    if (response.status === 200) {
+      return true;
+    }
+    return false;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+};
+
+// export const postUser = async () => {
+//   try {
+//     const requestPost = {
+//       method: 'POST',
+//       headers: {'Content-Type': 'application/json'},
+//       body: JSON.stringify({title: 'React POST Request Example'}),
+//     };
+//     fetch('http://192.168.42.74:3001/users', requestPost),
+//     const json = await requestPost.json();
+//   } catch (error) {
+//     console.error(error);
+//   }
 // };
 
-// export const postUser = () => {
-//   const formData = new FormData();
-//   formData.append('first_name', users.name);
-//   formData.append('last_name', users.email);
-//   formData.append('email', users.fone);
-//   formData.append('email', users.birthday);
-//   formData.append('email', users.cpf);
-// or res.json()
-
-//   createNewProfile(profile)
-//     .then(json => {})
-//     .catch(error => error);
+export const postUser = async () => {
+  const requestOptions = {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({title: 'React POST Request Example'}),
+  };
+  const response = await fetch(
+    'http://192.168.42.74:3001/users',
+    requestOptions,
+  );
+  const data = await response.json();
+  this.setState({postId: data.id});
+};

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {TextInput, View} from 'react-native';
 import Styles from '../views/styles';
 import IconCpf from '../assets/CPF.svg';
@@ -6,8 +6,9 @@ import IconUser from '../assets/user.svg';
 import IconEmail from '../assets/email.svg';
 import IconFone from '../assets/telefone.svg';
 import IconBirthday from '../assets/encontro.svg';
+import postUser from '../services/api';
 
-const CardUser = () => {
+const CardUser = ({usersa, onChange}) => {
   const [user, setUser] = useState({
     name: '',
     email: '',
@@ -15,10 +16,9 @@ const CardUser = () => {
     birthday: '',
     cpf: '',
   });
-
   console.log(user);
 
-  const onChangeText = (name, value) => {
+  const change = (name, value) => {
     setUser({...user, ...{[name]: value}});
   };
 

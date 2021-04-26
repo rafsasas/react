@@ -10,24 +10,36 @@ import {
 } from 'react-native';
 import Styles from '../views/styles';
 import Imagem from '../assets/pp.png';
-import {getUsers} from '../services/api';
+import {getUsers, deleteUser, postUser} from '../services/api';
 import IconDelete from '../assets/delete.svg';
+import {useNavigation} from '@react-navigation/native';
 
 const Users = () => {
   const [loading, setLoading] = useState(true);
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    const start = async () => {
-      const request = await getUsers();
-      if (request) {
-        setUsers(request);
-      }
-      setLoading(false);
-    };
-    start();
+    fetchUsers();
   }, []);
 
-  const Item = ({item, navigation}) => (
+  const navigation = useNavigation();
+
+  const fetchUsers = async () => {
+    const request = await getUsers();
+    if (request) {
+      setUsers(request);
+    }
+    setLoading(false);
+  };
+
+  const removeUser = async id => {
+    const request = await deleteUser(id);
+    if (request) {
+      fetchUsers();
+    }
+    console.log();
+  };
+
+  const Item = ({item}) => (
     <View style={Styles.containerLista}>
       <Image source={Imagem} style={Styles.image} />
 
@@ -37,7 +49,9 @@ const Users = () => {
         <Text>{item.name}</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={Styles.containerIcon}>
+      <TouchableOpacity
+        onPress={() => removeUser(item.id)}
+        style={Styles.containerIcon}>
         <IconDelete width={20} height={20} />
       </TouchableOpacity>
     </View>
