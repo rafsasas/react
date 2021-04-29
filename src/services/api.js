@@ -1,6 +1,8 @@
+const baseURL = 'http://192.168.42.206:3001/users';
+
 export const getUsers = async () => {
   try {
-    let response = await fetch('http://192.168.42.74:3001/users');
+    let response = await fetch(baseURL);
     let json = await response.json();
     return json.users;
   } catch (error) {
@@ -10,7 +12,7 @@ export const getUsers = async () => {
 
 export const deleteUser = async id => {
   try {
-    let response = await fetch(`http://192.168.42.74:3001/users/${id}`, {
+    let response = await fetch(`${baseURL}/${id}`, {
       method: 'DELETE',
     });
     if (response.status === 200) {
@@ -21,32 +23,4 @@ export const deleteUser = async id => {
     console.error(error);
     return false;
   }
-};
-
-// export const postUser = async () => {
-//   try {
-//     const requestPost = {
-//       method: 'POST',
-//       headers: {'Content-Type': 'application/json'},
-//       body: JSON.stringify({title: 'React POST Request Example'}),
-//     };
-//     fetch('http://192.168.42.74:3001/users', requestPost),
-//     const json = await requestPost.json();
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
-
-export const postUser = async () => {
-  const requestOptions = {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({title: 'React POST Request Example'}),
-  };
-  const response = await fetch(
-    'http://192.168.42.74:3001/users',
-    requestOptions,
-  );
-  const data = await response.json();
-  this.setState({postId: data.id});
 };

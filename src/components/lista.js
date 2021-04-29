@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import Styles from '../views/styles';
 import Imagem from '../assets/pp.png';
-import {getUsers, deleteUser, postUser} from '../services/api';
+import {getUsers, deleteUser} from '../services/api';
 import IconDelete from '../assets/delete.svg';
 import {useNavigation} from '@react-navigation/native';
 
@@ -44,7 +44,7 @@ const Users = () => {
       <Image source={Imagem} style={Styles.image} />
 
       <TouchableOpacity
-        onPress={() => navigation.navigate('Screen2')}
+        onPress={() => navigation.navigate('Screen2', {user: item})}
         style={Styles.title}>
         <Text>{item.name}</Text>
       </TouchableOpacity>
@@ -52,7 +52,7 @@ const Users = () => {
       <TouchableOpacity
         onPress={() => removeUser(item.id)}
         style={Styles.containerIcon}>
-        <IconDelete width={20} height={20} />
+        <IconDelete width={20} height={20} flex={1} />
       </TouchableOpacity>
     </View>
   );

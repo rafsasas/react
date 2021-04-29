@@ -127,6 +127,7 @@ const Styles = StyleSheet.create({
     height: 40,
     alignItems: 'center',
     paddingLeft: 100,
+    flexDirection: 'row',
   },
 });
 
