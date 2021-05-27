@@ -1,9 +1,10 @@
-import React from 'react';
-
+import React, {useEffect} from 'react';
+import Test from './src/screens/AppTour';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Screen2 from './src/screens/screen2';
 import Screen1 from './src/screens/screen1';
+import {useTourGuideController} from 'rn-tourguide';
 
 const Stack = createStackNavigator();
 

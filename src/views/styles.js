@@ -129,6 +129,26 @@ const Styles = StyleSheet.create({
     paddingLeft: 100,
     flexDirection: 'row',
   },
+  containerButton: {
+    width: '100%',
+    height: '40%',
+    flex: 1,
+  },
+  ButtonTour: {
+    width: '50%',
+    height: '50%',
+    flex: 1,
+  },
+  TextTest: {
+    width: '100%',
+    flex: 1,
+    height: 70,
+    color: '#7C8B99',
+    fontSize: 15,
+    textAlign: 'center',
+    justifyContent: 'center',
+    fontFamily: 'Cairo',
+  },
 });
 
 export default Styles;
